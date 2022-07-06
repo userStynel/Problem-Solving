@@ -12,10 +12,11 @@ int main(){
         scanf(" %d", &temp);
         SUM[i] = SUM[i-1] + temp;
     }
-    for(int i = 0; i<M; i++){
-        int A, B;
-        scanf(" %d %d", &A, &B);
-        printf("%d\n", SUM[B]-SUM[A-1]);
-    } 
+    for(int i = K; i<=N; i++){
+        int subsum = SUM[i] - SUM[i-K];
+        if(subsum > highest)
+            highest = subsum;
+    }
+    printf("%d\n", highest);
     return 0;
 }
